@@ -4,7 +4,6 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
 	{% seo %}
 	<link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"
@@ -34,18 +33,25 @@
 
 	<div class="wrapper">
 
-		<section>
-			<div id="title">
-				<h1>{{ page.title | default: site.github.repository_name }}</h1>
-				<p>{{ site.description | default: site.github.project_tagline }}</p>
-				<hr>
-				<span class="credits left">Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></span>
-				<span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></span>
-			</div>
+            <!-- get on correct post or first if we don't have one -->
+            {% if page.title %}
+                {% assign current = page %}
+            {% else %}
+                {% assign current = site.posts[0] %}
+            {% endif %}
+            <section>
+                <!-- then we are on the right post -->
+                {% if current.thumbnail %}
+                    <img src="{{ current.thumbnail }}" alt="{{ current.title }}" title="{{ current.title }}" />
+                {% endif %}
+                <div id="title">
+                    <h1>{{ current.title }}</h1>
+                    <hr>
+                </div>
 
-			{{ content }}
+                {{ current.content }}
 
-		</section>
+            </section>
 
 	</div>
 	<script>

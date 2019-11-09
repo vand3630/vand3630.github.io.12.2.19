@@ -6,4 +6,4 @@ tags: entrepreneurship
 ---
 ![Global Entrepreneurship Summit](/images/uploads/2016_global_entrepreneurship_summit_logo_color_800_1.jpg "Global Entrepreneurship Summit")
 
-Changing this now.
+Changing this now. I don't know why it is so strange????

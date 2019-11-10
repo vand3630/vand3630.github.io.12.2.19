@@ -1,37 +1,15 @@
-## Welcome to GitHub Pages
+## Single Page Netlify, Jekyll and Github Pages
 
-You can use the [editor on GitHub](https://github.com/salesucation/salesucation.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This is is intended to be deployed on Netlify and Github pages as your user page as a portfolio.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/rhildred/netlify-jekyll-github-pages)
 
-### Markdown
+There are 4 levers that you can use to make this your own.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+1. You can put your own (s)css code in [assets/css/style.scss](assets/css/style.scss)
+1. You can modify the html in [_layouts/default.html](_layouts/default.html)
+1. You can add static bookmarklets that will be at the bottom of your single page sheet following the example of [about.md](about.md)
+1. You can add fields to your posts by editing [admin/config.yml](admin/config.yml)
 
-```markdown
-Syntax highlighted code block
+I will be providing more detail on each option in the following.
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/salesucation/salesucation.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.

@@ -44,7 +44,7 @@
 	<div class="wrapper">
 
             <!-- get on correct post or first if we don't have one -->
-            {% if page.title %}
+            {% if page.collection %}
                 {% assign current = page %}
             {% else %}
                 {% assign current = site.posts[0] %}

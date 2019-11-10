@@ -4,6 +4,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% if page.robots %}
+        <meta name="robots" content="{{ page.robots }}" />
+    {% endif %}
 	{% seo %}
 	<link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"
@@ -51,6 +54,23 @@
 
                 {{ current.content }}
 
+            </section>
+            <section>
+                {% for post in site.posts limit: 5 %}
+                    {% if post.id == current.id %}
+                        {% continue %}
+                    {% endif %}
+                    {% if post.thumbnail %}
+                        <img src="{{ post.thumbnail }}" alt="{{ post.title }}" title="{{ post.title }}" />
+                    {% endif %}
+                    <div id="title">
+                        <h1>{{ post.title }}</h1>
+                        <hr>
+                    </div>
+
+                    {{ post.content }}
+
+                {% endfor %}
             </section>
 
 	</div>

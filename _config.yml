@@ -2,7 +2,6 @@ theme: jekyll-theme-midnight
 # deployment
 host: 0.0.0.0
 port: 8080
-repository: "salesucation/salesucation.github.io"
 plugins:
   - jekyll-sitemap
 defaults:

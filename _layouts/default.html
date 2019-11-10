@@ -31,6 +31,13 @@
 			<li class="downloads"><a href="{{ site.github.tar_url }}">TAR</a></li>
 			<li class="title">DOWNLOADS</li>
 			{% endif %}
+            {% for static in site.pages %}
+                {% unless static.url == "/" or static.url contains "admin" or static.url contains "search" or static.url contains "assets" or static.url contains "sitemap" or static.url contains "robots" %}
+                    <li class="downloads"><a href="#{{ static.id }}">{{ static.title }}</a></li>
+
+                {% endunless %}
+            {% endfor %}
+
 		</nav>
 	</div><!-- end header -->
 
@@ -60,6 +67,8 @@
                     {% if post.id == current.id %}
                         {% continue %}
                     {% endif %}
+                    <a href="{{ post.url }}">
+                    <div>
                     {% if post.thumbnail %}
                         <img src="{{ post.thumbnail }}" alt="{{ post.title }}" title="{{ post.title }}" />
                     {% endif %}
@@ -69,7 +78,27 @@
                     </div>
 
                     {{ post.content }}
+                    </div>
+                    </a>
 
+                {% endfor %}
+            </section>
+            <section>
+                {% for static in site.pages %}
+                    {% unless static.url == "/" or static.url contains "admin" or static.url contains "search" or static.url contains "assets" or static.url contains "sitemap" or static.url contains "robots" %}
+                        <div id="{{ static.id }}">
+                        {% if static.thumbnail %}
+                            <img src="{{ static.thumbnail }}" alt="{{ static.title }}" title="{{ static.title }}" />
+                        {% endif %}
+                        <div id="title">
+                            <h1>{{ static.title }}</h1>
+                            <hr>
+                        </div>
+
+                        {{ static.content }}
+                        </div>
+
+                    {% endunless %}
                 {% endfor %}
             </section>
 

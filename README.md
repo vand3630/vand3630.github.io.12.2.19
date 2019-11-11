@@ -1,8 +1,10 @@
 ## Single Page Netlify, Jekyll and Github Pages
 
-This is is intended to be deployed on Netlify and Github pages as your user page as a portfolio.
+This is is intended to be deployed on Netlify and Github pages as a user page portfolio.
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/rhildred/netlify-jekyll-github-pages)
+
+Once you have clicked the above button you will need to turn on identity and the git gateway.
 
 There are 4 levers that you can use to make this your own.
 

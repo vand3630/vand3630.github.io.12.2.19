@@ -1,5 +1,11 @@
 <!doctype html>
 <html lang="{{ site.lang | default: "en-US" }}">
+<!-- get on correct post or first if we don't have one -->
+{% if page.collection %}
+    {% assign current = page %}
+{% else %}
+    {% assign current = site.posts[0] %}
+{% endif %}
 
 <head>
 	<meta charset="utf-8">
@@ -7,7 +13,8 @@
     {% if page.robots %}
         <meta name="robots" content="{{ page.robots }}" />
     {% endif %}
-	<link rel="stylesheet" href="{{ '/assets/css/style.css | relative_url }}">
+    <title>{{ page.title }}</title>
+	<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"
 		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 	<script src="{{ '/assets/js/respond.js' | relative_url }}"></script>
@@ -25,10 +32,10 @@
 	<div id="header">
 		<nav>
             {% for static in site.pages %}
-                {% unless static.url == "/" or static.url contains "admin" or static.url contains "search" or static.url contains "assets" or static.url contains "sitemap" or static.url contains "robots" %}
+                {% if static.id %}
                     <li class="downloads"><a href="#{{ static.id }}">{{ static.title }}</a></li>
 
-                {% endunless %}
+                {% endif %}
             {% endfor %}
 
 		</nav>
@@ -36,12 +43,6 @@
 
 	<div class="wrapper">
 
-            <!-- get on correct post or first if we don't have one -->
-            {% if page.collection %}
-                {% assign current = page %}
-            {% else %}
-                {% assign current = site.posts[0] %}
-            {% endif %}
             <section>
                 <!-- then we are on the right post -->
                 {% if current.thumbnail %}
@@ -78,7 +79,7 @@
             </section>
             <section>
                 {% for static in site.pages %}
-                    {% unless static.url == "/" or static.url contains "admin" or static.url contains "search" or static.url contains "assets" or static.url contains "sitemap" or static.url contains "robots" %}
+                    {% if static.id %}
                         <div id="{{ static.id }}">
                         {% if static.thumbnail %}
                             <img src="{{ static.thumbnail }}" alt="{{ static.title }}" title="{{ static.title }}" />
@@ -91,7 +92,7 @@
                         {{ static.content }}
                         </div>
 
-                    {% endunless %}
+                    {% endif %}
                 {% endfor %}
             </section>
 
@@ -117,6 +118,12 @@
         ga('send', 'pageview');
 	</script>
 	{% endif %}
+    {% if page.id %}
+        <script>
+            window.location = (""+window.location).replace(/#[A-Za-z0-9_]*$/,'')+"#{{ page.id }}"
+        </script>
+    {% endif %}
+
 </body>
 
 </html>

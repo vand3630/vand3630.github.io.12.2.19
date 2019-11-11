@@ -2,8 +2,6 @@ theme: jekyll-theme-midnight
 # deployment
 host: 0.0.0.0
 port: 8080
-# set to 'true' to enable Netlify CMS (/admin) in production builds
-netlifycms: true
 title: Portfolio
 baseurl: ""
 repository: "rhildred/netlify-jekyll-github-pages"
